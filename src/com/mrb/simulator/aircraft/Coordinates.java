@@ -1,4 +1,4 @@
-package com.mrb.simulator;
+package com.mrb.simulator.aircraft;
 
 public class Coordinates {
 
