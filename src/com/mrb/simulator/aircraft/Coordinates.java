@@ -23,4 +23,9 @@ public class Coordinates {
 	public int	getHeight() {
 		return this.height;
 	}
+
+	@Override
+	public String toString() {
+		return "[" + longitude + "," + latitude + "," + height + "]";
+	}
 }

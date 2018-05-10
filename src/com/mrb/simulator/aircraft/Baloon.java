@@ -22,10 +22,8 @@ public class Baloon extends Aircraft implements Flyable {
 		else if (weather.equals(Weather.SNOW.name()))
 			updateCoordinates("It's snowing. We're gonna crash.", 0, 0, -15);
 
-		if (coordinates.getHeight() <= 0) {
-			System.out.println(this + " landing");
+		if (coordinates.getHeight() <= 0)
 			weatherTower.unregister(this);
-		}
 	}
 
 	public void registerTower(WeatherTower weatherTower) {
@@ -35,6 +33,6 @@ public class Baloon extends Aircraft implements Flyable {
 
 	@Override
 	public String toString() {
-		return "Baloon#" + this.name + "(" + this.id +")";
+		return "Baloon#" + this.name + "(" + this.id +")" + coordinates;
 	}
 }

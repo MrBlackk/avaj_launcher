@@ -22,10 +22,8 @@ public class JetPlane extends Aircraft implements Flyable {
 		else if (weather.equals(Weather.SNOW.name()))
 			updateCoordinates("OMG! Winter is coming!", 0, 0, -7);
 
-		if (coordinates.getHeight() <= 0) {
-			System.out.println(this + " landing");
+		if (coordinates.getHeight() <= 0)
 			weatherTower.unregister(this);
-		}
 	}
 
 	public void registerTower(WeatherTower weatherTower) {
@@ -35,6 +33,6 @@ public class JetPlane extends Aircraft implements Flyable {
 
 	@Override
 	public String toString() {
-		return "JetPlane#" + this.name + "(" + this.id +")";
+		return "JetPlane#" + this.name + "(" + this.id +")" + coordinates;
 	}
 }

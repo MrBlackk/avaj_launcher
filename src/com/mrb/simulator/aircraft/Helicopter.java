@@ -22,10 +22,8 @@ public class Helicopter extends Aircraft implements Flyable {
 		else if (weather.equals(Weather.SNOW.name()))
 			updateCoordinates("My rotor is going to freeze!", 0, 0, -12);
 
-		if (coordinates.getHeight() <= 0) {
-			System.out.println(this + " landing");
+		if (coordinates.getHeight() <= 0)
 			weatherTower.unregister(this);
-		}
 	}
 
 	public void registerTower(WeatherTower weatherTower) {
@@ -35,6 +33,6 @@ public class Helicopter extends Aircraft implements Flyable {
 
 	@Override
 	public String toString() {
-		return "Helicopter#" + this.name + "(" + this.id +")";
+		return "Helicopter#" + this.name + "(" + this.id +")" + coordinates;
 	}
 }
