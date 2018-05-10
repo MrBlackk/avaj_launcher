@@ -8,9 +8,9 @@ public abstract class AircraftFactory {
 			case "Helicopter":
 				return new Helicopter(name, coord);
 			case "Baloon":
-				return new Helicopter(name, coord);
+				return new Baloon(name, coord);
 			case "JetPlane":
-				return new Helicopter(name, coord);
+				return new JetPlane(name, coord);
 			default:
 				throw new IllegalArgumentException("Invalid aircraft type: " + type);
 		}
