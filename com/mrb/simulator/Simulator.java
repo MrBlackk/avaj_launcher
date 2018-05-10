@@ -17,6 +17,8 @@ import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.lang.NumberFormatException;
 
+import com.mrb.simulator.Log;
+
 public class Simulator {
 
 	private static WeatherTower weatherTower;
@@ -28,6 +30,7 @@ public class Simulator {
 		FileReader fr = null;
 
 		try {
+			Log.setup();
 			fr = new FileReader(arg[0]);
 			br = new BufferedReader(fr);
 
@@ -83,7 +86,7 @@ public class Simulator {
 	private static Flyable parseFlyable(String line) throws NumberFormatException, EmptyStringException, SimulationLineFormatException {
 		String[] splittedLine = line.split(" ");
 		if (splittedLine.length != NUM_OF_WORDS)
-			throw new SimulationLineFormatException("Wrong line format, should be 'TYPE NAME LONGITUDE LATITUDE HEIGHT'");
+			throw new SimulationLineFormatException("Wrong line format");
 
 		if ("".equals(splittedLine[0]))
 			throw new EmptyStringException("Type is empty");

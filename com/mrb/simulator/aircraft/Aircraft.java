@@ -1,5 +1,7 @@
 package com.mrb.simulator.aircraft;
 
+import com.mrb.simulator.Log;
+
 public abstract class Aircraft implements Comparable<Aircraft> {
 
 	protected long id;
@@ -18,12 +20,12 @@ public abstract class Aircraft implements Comparable<Aircraft> {
 	}
 
 	protected void updateCoordinates(String message, int addLongitude, int addLatitude, int addHeight) {
-		System.out.println(this + ": " + message);
+		Log.info(this + ": " + message);
 		if (coordinates.getHeight() + addHeight <= 0) {
-			System.out.println(this + " landing1");
+			Log.info(this + " landing");
 			addHeight = -coordinates.getHeight();
 		} else if (coordinates.getHeight() + addHeight > 100) {
-			System.out.println(this + " too high...");
+			Log.info(this + " too high...");
 			addHeight = 100 - coordinates.getHeight();
 		}
 		coordinates = new Coordinates(
