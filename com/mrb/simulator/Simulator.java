@@ -24,6 +24,7 @@ public class Simulator {
 	private static WeatherTower weatherTower;
 	private static List<Flyable> flyables = new ArrayList<Flyable>();
 	private static final int NUM_OF_WORDS = 5;
+	private static final int MAX_HEIGHT = 100;
 
 	public static void main(String[] arg) {
 		BufferedReader br = null;
@@ -47,19 +48,19 @@ public class Simulator {
 				weatherTower.changeWeather();
 
 		} catch (FileNotFoundException e) {
-			System.err.println("File could not found:" + e.getMessage());
+			System.out.println("File could not found:" + e.getMessage());
 		} catch (IOException e) {
-			System.err.println("Read file error:" + e.getMessage());
+			System.out.println("Read file error:" + e.getMessage());
 		} catch (ArrayIndexOutOfBoundsException e) {
-			System.err.println("No argumenrs were passed.");
+			System.out.println("No argumenrs were passed.");
 		} catch (NumberFormatException e) {
-			System.err.println("Number error: " + e.getMessage());
+			System.out.println("Number error: " + e.getMessage());
 		} catch (EmptyStringException e) {
-			System.err.println("Empty String error: " + e.getMessage());
+			System.out.println("Empty String error: " + e.getMessage());
 		} catch (SimulationLineFormatException e) {
-			System.err.println("Line format error: " + e.getMessage());
+			System.out.println("Line format error: " + e.getMessage());
 		} catch (IllegalArgumentException e) {
-			System.err.println("Wrong type: " + e.getMessage());
+			System.out.println("Wrong type: " + e.getMessage());
 		}
 		finally {
 			try {
@@ -68,7 +69,7 @@ public class Simulator {
 				if (fr != null)
 					fr.close();
 			} catch (IOException e) {
-				System.err.println("Close file error");
+				System.out.println("Close file error");
 			}
 		}
 	}
@@ -104,8 +105,8 @@ public class Simulator {
 		int height = Integer.parseInt(splittedLine[4]);
 		if (height < 0)
 			throw new NumberFormatException("Height is lower than zero");
-		else if (height > 100)
-			throw new NumberFormatException("Height is bigger than 100");
+		else if (height > MAX_HEIGHT)
+			throw new NumberFormatException("Height is bigger than " + MAX_HEIGHT);
 
 		return AircraftFactory.newAircraft(splittedLine[0], splittedLine[1], longitude, latitude, height);
 	}

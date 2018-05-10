@@ -21,17 +21,18 @@ public abstract class Aircraft implements Comparable<Aircraft> {
 
 	protected void updateCoordinates(String message, int addLongitude, int addLatitude, int addHeight) {
 		Log.info(this + ": " + message);
-		if (coordinates.getHeight() + addHeight <= 0) {
-			Log.info(this + " landing");
+		if (coordinates.getHeight() + addHeight <= 0)
 			addHeight = -coordinates.getHeight();
-		} else if (coordinates.getHeight() + addHeight > 100) {
-			Log.info(this + " too high...");
+		else if (coordinates.getHeight() + addHeight > 100)
 			addHeight = 100 - coordinates.getHeight();
-		}
+
 		coordinates = new Coordinates(
 					coordinates.getLongitude() + addLongitude,
 					coordinates.getLatitude() + addLatitude,
 					coordinates.getHeight() + addHeight);
+
+		if (coordinates.getHeight() <= 0)
+			Log.info(this + " landing at " + coordinates);
 	}
 
 	@Override

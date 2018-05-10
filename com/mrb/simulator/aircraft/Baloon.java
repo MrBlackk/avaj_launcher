@@ -33,6 +33,6 @@ public class Baloon extends Aircraft implements Flyable {
 
 	@Override
 	public String toString() {
-		return "Baloon#" + this.name + "(" + this.id +")" + coordinates;
+		return "Baloon#" + this.name + "(" + this.id +")";
 	}
 }
