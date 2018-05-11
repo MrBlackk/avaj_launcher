@@ -1,6 +1,5 @@
 package com.mrb.simulator;
 
-import com.mrb.weather.WeatherProvider;
 import com.mrb.simulator.aircraft.AircraftFactory;
 import com.mrb.simulator.aircraft.Flyable;
 
@@ -9,7 +8,6 @@ import com.mrb.exception.SimulationLineFormatException;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Iterator;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
