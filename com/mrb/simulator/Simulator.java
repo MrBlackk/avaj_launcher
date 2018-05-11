@@ -31,6 +31,8 @@ public class Simulator {
 		FileReader fr = null;
 
 		try {
+			if (arg.length != 1)
+				throw new IllegalArgumentException("One argument requiered: scenario_file");
 			Log.setup();
 			fr = new FileReader(arg[0]);
 			br = new BufferedReader(fr);
@@ -51,8 +53,6 @@ public class Simulator {
 			System.out.println("File could not found:" + e.getMessage());
 		} catch (IOException e) {
 			System.out.println("Read file error:" + e.getMessage());
-		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("No argumenrs were passed.");
 		} catch (NumberFormatException e) {
 			System.out.println("Number error: " + e.getMessage());
 		} catch (EmptyStringException e) {
@@ -60,7 +60,7 @@ public class Simulator {
 		} catch (SimulationLineFormatException e) {
 			System.out.println("Line format error: " + e.getMessage());
 		} catch (IllegalArgumentException e) {
-			System.out.println("Wrong type: " + e.getMessage());
+			System.out.println("Wrong arg: " + e.getMessage());
 		}
 		finally {
 			try {
@@ -68,6 +68,7 @@ public class Simulator {
 					br.close();
 				if (fr != null)
 					fr.close();
+				Log.close();
 			} catch (IOException e) {
 				System.out.println("Close file error");
 			}
@@ -80,33 +81,33 @@ public class Simulator {
 
 		int numSimulations = Integer.parseInt(line);
 		if (numSimulations < 0)
-			throw new NumberFormatException("Number of simulations is lower than zero");
+			throw new NumberFormatException("Number of simulations is lower than zero, in line '" + line + "'");
 		return numSimulations;
 	}
 
 	private static Flyable parseFlyable(String line) throws NumberFormatException, EmptyStringException, SimulationLineFormatException {
 		String[] splittedLine = line.split(" ");
 		if (splittedLine.length != NUM_OF_WORDS)
-			throw new SimulationLineFormatException("Wrong line format");
+			throw new SimulationLineFormatException("Wrong line format, in line '" + line + "'");
 
 		if ("".equals(splittedLine[0]))
-			throw new EmptyStringException("Type is empty");
+			throw new EmptyStringException("Type is empty, in line '" + line + "'");
 		if ("".equals(splittedLine[1]))
-			throw new EmptyStringException("Name is empty");
+			throw new EmptyStringException("Name is empty, in line '" + line + "'");
 
 		int longitude = Integer.parseInt(splittedLine[2]);
 		if (longitude < 0)
-			throw new NumberFormatException("Longitude is lower than zero");
+			throw new NumberFormatException("Longitude is lower than zero, in line '" + line + "'");
 
 		int latitude = Integer.parseInt(splittedLine[3]);
 		if (latitude < 0)
-			throw new NumberFormatException("Latitude is lower than zero");
+			throw new NumberFormatException("Latitude is lower than zero, in line '" + line + "'");
 
 		int height = Integer.parseInt(splittedLine[4]);
 		if (height < 0)
-			throw new NumberFormatException("Height is lower than zero");
+			throw new NumberFormatException("Height is lower than zero, in line '" + line + "'");
 		else if (height > MAX_HEIGHT)
-			throw new NumberFormatException("Height is bigger than " + MAX_HEIGHT);
+			throw new NumberFormatException("Height is bigger than " + MAX_HEIGHT + ", in line '" + line + "'");
 
 		return AircraftFactory.newAircraft(splittedLine[0], splittedLine[1], longitude, latitude, height);
 	}

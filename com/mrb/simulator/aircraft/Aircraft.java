@@ -2,7 +2,7 @@ package com.mrb.simulator.aircraft;
 
 import com.mrb.simulator.Log;
 
-public abstract class Aircraft implements Comparable<Aircraft> {
+public abstract class Aircraft {
 
 	protected long id;
 	protected String name;
@@ -33,10 +33,5 @@ public abstract class Aircraft implements Comparable<Aircraft> {
 
 		if (coordinates.getHeight() <= 0)
 			Log.info(this + " landing at " + coordinates);
-	}
-
-	@Override
-	public int compareTo(Aircraft o) {
-		return this.name.compareTo(o.name);
 	}
 } 

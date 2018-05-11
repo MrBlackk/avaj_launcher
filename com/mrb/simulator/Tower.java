@@ -2,7 +2,7 @@ package com.mrb.simulator;
 
 import java.util.Queue;
 import java.util.Iterator;
-import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 import com.mrb.simulator.aircraft.Flyable;
 
@@ -10,7 +10,7 @@ import com.mrb.simulator.Log;
 
 public abstract class Tower {
 
-	private Queue<Flyable> observers = new PriorityBlockingQueue<>();
+	private Queue<Flyable> observers = new LinkedBlockingQueue<Flyable>();
 
 	public void register(Flyable flyable) {
 		Log.info("Tower says: " + flyable + " registered to weather tower.");
