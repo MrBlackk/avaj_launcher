@@ -27,9 +27,9 @@ public abstract class Aircraft {
 			addHeight = 100 - coordinates.getHeight();
 
 		coordinates = new Coordinates(
-					coordinates.getLongitude() + addLongitude,
-					coordinates.getLatitude() + addLatitude,
-					coordinates.getHeight() + addHeight);
+				coordinates.getLongitude() + addLongitude,
+				coordinates.getLatitude() + addLatitude,
+				coordinates.getHeight() + addHeight);
 
 		if (coordinates.getHeight() <= 0)
 			Log.info(this + " landing at " + coordinates);

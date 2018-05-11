@@ -34,6 +34,6 @@ public class Helicopter extends Aircraft implements Flyable {
 
 	@Override
 	public String toString() {
-		return "Helicopter#" + this.name + "(" + this.id +")";
+		return "Helicopter#" + this.name + "(" + this.id + ")";
 	}
 }

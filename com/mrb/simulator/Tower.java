@@ -17,10 +17,10 @@ public abstract class Tower {
 		observers.add(flyable);
 	}
 
-	public void	unregister(Flyable flyable) {
+	public void unregister(Flyable flyable) {
 		Iterator<Flyable> iter = observers.iterator();
 		while (iter.hasNext()) {
-			if (iter.next() == flyable){
+			if (iter.next() == flyable) {
 				Log.info("Tower says: " + flyable + " unregistered from weather tower.");
 				iter.remove();
 			}

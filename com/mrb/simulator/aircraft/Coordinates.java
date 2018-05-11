@@ -20,7 +20,7 @@ public class Coordinates {
 		return this.latitude;
 	}
 
-	public int	getHeight() {
+	public int getHeight() {
 		return this.height;
 	}
 

@@ -34,6 +34,6 @@ public class JetPlane extends Aircraft implements Flyable {
 
 	@Override
 	public String toString() {
-		return "JetPlane#" + this.name + "(" + this.id +")";
+		return "JetPlane#" + this.name + "(" + this.id + ")";
 	}
 }

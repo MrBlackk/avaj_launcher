@@ -3,7 +3,7 @@ package com.mrb.weather;
 import com.mrb.simulator.aircraft.Coordinates;
 
 public class WeatherProvider {
-	
+
 	private static WeatherProvider weatherProvider;
 
 	private WeatherProvider() {

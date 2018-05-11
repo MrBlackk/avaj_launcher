@@ -59,8 +59,7 @@ public class Simulator {
 			System.out.println("Line format error: " + e.getMessage());
 		} catch (IllegalArgumentException e) {
 			System.out.println("Wrong arg: " + e.getMessage());
-		}
-		finally {
+		} finally {
 			try {
 				if (br != null)
 					br.close();
