@@ -11,4 +11,4 @@ To **run**:
 `sh run.sh`
 
 
-<img src="https://drive.google.com/file/d/1YbwW6Xx7RuFkwwOsGCltXIt-Qp9vGXsE/view?usp=sharing" alt="UML">
+![image](https://drive.google.com/uc?export=view&id=1YbwW6Xx7RuFkwwOsGCltXIt-Qp9vGXsE)
